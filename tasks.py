@@ -29,4 +29,5 @@ def delete_task(tasks):
         del tasks[task] 
         print("Task deleted successfully\n")
     else:
-        print("Task not present in list\n")                                           
+        print("Task not present in list\n")
+         

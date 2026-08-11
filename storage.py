@@ -10,3 +10,4 @@ def load_tasks():
             return json.load(file)
     except FileNotFoundError:
         return {}
+        
