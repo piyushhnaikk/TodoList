@@ -1,3 +1,5 @@
+import tasks as tks
+
 print("==========================================================\n")
 print("                   MY PERSONAL ASSISTANT                  \n")
 print("==========================================================\n\n")
@@ -9,43 +11,20 @@ print("4. Delete Task")
 print("5. Exit\n\n")
 
 command = int(input("Enter choice:  "))
-tasks = {}
+todo = {}
 
 while (command != 5):
     match command:
         case 1:
-            task = input("Enter task: ").lower()
-            tasks[task] = False
-            print("Task added sucessfully \n\n")
+           tks.add_task(todo) 
 
         case 2:
-            num = 1
-            for i in tasks.keys():
-                print(num, ". ",i, end = "" )
-                if not tasks[i]:
-                    print("[Pending]")
-                else:
-                    print("[Completed]")
-                num += 1
-
+            tks.view_tasks(todo)
 
         case 3:
-            task = input("Enter task: ").lower()
-
-            if task in tasks:
-                tasks[task] = True
-                print("Task marked completed\n\n")
-            else:
-                print("Task not present in list\n\n")
+            tks.complete_task(todo)
 
         case 4:
-            task = input("Enter task: ").lower()
-            if task in tasks:
-                del tasks[task] 
-                print("Task deleted sucessfully\n\n")
-            else:
-                print("Task not present in list\n\n")
-
-
+            tks.delete_task(todo)
 
     command = int(input("Enter choice:  "))
