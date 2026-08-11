@@ -1,17 +1,19 @@
 import tasks as tks
+import storage as stor
 
+todo = stor.load_tasks()
+
+print("==========================================================")
+print("                   MY PERSONAL ASSISTANT                  ")
 print("==========================================================\n")
-print("                   MY PERSONAL ASSISTANT                  \n")
-print("==========================================================\n\n")
 
 print("1. Add Task")
 print("2. View Task")
 print("3. Complete Task")
 print("4. Delete Task")
-print("5. Exit\n\n")
+print("5. Exit\n")
 
 command = int(input("Enter choice:  "))
-todo = {}
 
 while (command != 5):
     match command:
@@ -28,3 +30,5 @@ while (command != 5):
             tks.delete_task(todo)
 
     command = int(input("Enter choice:  "))
+
+stor.save_tasks(todo)
