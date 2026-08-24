@@ -5,23 +5,26 @@ import ui
 todo = stor.load_tasks()
 
 ui.display_options()
-
 command = ui.get_command()
 
-while (command != 5):
+while command != 5:
+
     match command:
         case 1:
-           tks.add_task(todo) 
+            task = ui.take_input()
+            print(tks.add_task(todo, task))
 
         case 2:
-            tks.view_tasks(todo)
+            ui.view_tasks(todo)
 
         case 3:
-            tks.complete_task(todo)
+            task = ui.take_input()
+            print(tks.complete_task(todo, task))
 
         case 4:
-            tks.delete_task(todo)
-    
+            task = ui.take_input()
+            print(tks.delete_task(todo, task))
+
     ui.display_options()
     command = ui.get_command()
 

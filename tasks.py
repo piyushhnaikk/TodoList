@@ -1,33 +1,25 @@
-def add_task(tasks):
-    task = input("Enter Task: ").lower()
+def add_task(tasks: dict, task: str):
+    if task in tasks:
+        return "Task already Exists!\n"
+    
     tasks[task] = False
-    print("Task added Successfully! \n")
+    return "Task added Successfully! \n"
 
-def view_tasks(tasks):
-    num = 1
-    for i in tasks.keys():
-        print(num, ". ",i, end = "" )
-        if not tasks[i]:
-            print("[Pending]")
+
+def complete_task(tasks: dict, task: str):
+    if task in tasks:
+        if not tasks[task]:
+            tasks[task] = True
+            return "Task marked completed\n"
         else:
-            print("[Completed]")
-        num += 1
-    print("\n\n")
-        
-def complete_task(tasks):
-    task = input("Enter task: ").lower()
-
-    if task in tasks:
-        tasks[task] = True
-        print("Task marked completed\n")
+            return "Task already completed!"
     else:
-        print("Task not present in list\n")
+        return "Task not present in list\n"
 
-def delete_task(tasks):
-    task = input("Enter task: ").lower()
+
+def delete_task(tasks: dict, task: str):
     if task in tasks:
-        del tasks[task] 
-        print("Task deleted successfully\n")
+        del tasks[task]
+        return "Task deleted successfully\n"
     else:
-        print("Task not present in list\n")
-         
+        return "Task not present in list\n"
