@@ -1,4 +1,4 @@
-from tasks import add_task, complete_task,delete_task
+from tasks import add_task, complete_task, delete_task
 import unittest
 
 class TestTasks(unittest.TestCase):
@@ -13,14 +13,16 @@ class TestTasks(unittest.TestCase):
         tasks = {"Learn python" : True}
 
         self.assertEqual(add_task(tasks, "Learn python"), "Task already Exists!\n")
+        self.assertIn("Learn python", tasks)
+        self.assertTrue(tasks["Learn python"])
 
-    def test_complete_task_IncompleteOne(self):
+    def test_complete_pending_task(self):
         tasks = {"learn python" : False}
 
         complete_task(tasks, "learn python")
         self.assertTrue(tasks["learn python"])
 
-    def test_complete_task_completeOne(self):
+    def test_complete_completed_task(self):
         tasks = {"learn git" : True}
         self.assertEqual(complete_task(tasks, "learn git"),"Task already completed!")
 

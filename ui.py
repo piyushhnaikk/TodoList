@@ -36,6 +36,10 @@ def take_input():
 
 
 def view_tasks(tasks):
+    if tasks == {}:
+        print("No tasks found!\n")
+        return
+    
     num = 1
 
     for i in tasks.keys():

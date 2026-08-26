@@ -12,3 +12,5 @@ def load_tasks(filename = "tasks.json"):
             return json.load(file)
     except FileNotFoundError:
         return {}
+    except json.JSONDecodeError:
+        return {}
