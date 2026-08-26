@@ -2,3 +2,6 @@ __pycache__/
 venv/
 .env
 tasks.json
+build/
+dist/
+*.spec
